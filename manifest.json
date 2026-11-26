@@ -1,0 +1,27 @@
+{
+  "id": "web",
+  "name": "网页搜索与获取",
+  "version": "0.1.0",
+  "description": "抓取网页正文（curl 转纯文本）和 DuckDuckGo 关键词搜索，把结果喂给模型。",
+  "author": "yushuchun177",
+  "homepage": "https://github.com/yushuchun177/localharness-plugin-web",
+  "min_app": "0.1.0",
+  "tools": [
+    {
+      "name": "web_fetch",
+      "description": "抓取一个网页并返回纯文本（去掉标签），最多返回 6000 字。",
+      "params": {
+        "url": "string，完整网址",
+        "max_chars": "int，可选，默认 6000"
+      }
+    },
+    {
+      "name": "web_search",
+      "description": "用 DuckDuckGo 搜索关键词，返回标题 + 链接 + 摘要（前 8 条）。",
+      "params": {
+        "query": "string，搜索词",
+        "limit": "int，可选，默认 8"
+      }
+    }
+  ]
+}
