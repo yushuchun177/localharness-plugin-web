@@ -32,4 +32,4 @@ main.gd         extends Node，实现 run(tool, args) -> {ok, output}
 
 ## 许可
 
-GPL-3.0（与主程序一致）。
+GPL-3.0（与主程序一致）。完整协议文本见仓库根目录的 `LICENSE` 文件。
