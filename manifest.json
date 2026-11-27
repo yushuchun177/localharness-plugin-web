@@ -8,6 +8,27 @@
   "author": "yushuchun177",
   "homepage": "https://github.com/yushuchun177/localharness-plugin-web",
   "min_app": "0.1.0",
+  "requires": {
+    "os": "Windows 10+",
+    "deps": [
+      "PowerShell"
+    ],
+    "disk": "< 1 MB",
+    "memory": "约 15 MB",
+    "network": true
+  },
+  "settings": [
+    {
+      "key": "max_chars",
+      "label": "抓取上限（字符）",
+      "type": "int",
+      "default": 6000,
+      "help": "网页转文本后最多返回多少字",
+      "min": 200,
+      "max": 50000,
+      "unit": "字符"
+    }
+  ],
   "tools": [
     {
       "name": "web_fetch",
@@ -15,7 +36,11 @@
       "params": {
         "url": "string，完整网址",
         "max_chars": "int，可选，默认 6000"
-      }
+      },
+      "level": "read",
+      "needs": [
+        "联网"
+      ]
     },
     {
       "name": "web_search",
@@ -23,16 +48,11 @@
       "params": {
         "query": "string，搜索词",
         "limit": "int，可选，默认 8"
-      }
-    }
-  ],
-  "settings": [
-    {
-      "key": "max_chars",
-      "label": "抓取上限（字符）",
-      "type": "int",
-      "default": 6000,
-      "help": "网页转文本后最多返回多少字"
+      },
+      "level": "read",
+      "needs": [
+        "联网"
+      ]
     }
   ]
 }
