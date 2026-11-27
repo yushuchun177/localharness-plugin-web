@@ -7,6 +7,7 @@ func build(plugin_id: String) -> void:
 	size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	add_child(PluginUI.plugin_header(plugin_id))
 	add_child(PluginUI.overview(plugin_id))
+	add_child(PluginUI.command_section(plugin_id))
 	add_child(PluginUI.settings_section(plugin_id))
 	add_child(PluginUI.permissions_section(plugin_id))
 	add_child(PluginUI.doc_section(plugin_id))
