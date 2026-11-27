@@ -12,11 +12,16 @@ const TIMEOUT := 25
 
 
 func _pref(key: String, def_value):
-	var ml := Engine.get_main_loop()
-	var prefs = ml.root.get_node_or_null("/root/PluginPrefs") if ml != null else null
-	if prefs == null:
+	# 直接读设置文件：在后台线程里也能用（不能碰场景树）
+	var f := FileAccess.open("user://plugin_settings.json", FileAccess.READ)
+	if f == null:
 		return def_value
-	return prefs.get_value("web", key, def_value)
+	var obj = JSON.parse_string(f.get_as_text())
+	if not (obj is Dictionary):
+		return def_value
+	var vals: Dictionary = obj.get("values", {})
+	var mine: Dictionary = vals.get("web", {})
+	return mine.get(key, def_value)
 
 func run(tool: String, args: Dictionary) -> Dictionary:
 	match tool:
