@@ -40,7 +40,8 @@
       "level": "read",
       "needs": [
         "联网"
-      ]
+      ],
+      "async": true
     },
     {
       "name": "web_search",
@@ -52,7 +53,8 @@
       "level": "read",
       "needs": [
         "联网"
-      ]
+      ],
+      "async": true
     }
   ]
 }
