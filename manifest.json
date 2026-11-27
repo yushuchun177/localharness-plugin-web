@@ -25,5 +25,14 @@
         "limit": "int，可选，默认 8"
       }
     }
+  ],
+  "settings": [
+    {
+      "key": "max_chars",
+      "label": "抓取上限（字符）",
+      "type": "int",
+      "default": 6000,
+      "help": "网页转文本后最多返回多少字"
+    }
   ]
 }
